@@ -20,8 +20,18 @@ obj.connect = async () => {
   });
 };
 
+obj.getNewId = async (collection) => {
+  let lastItem = await collection.find()
+    .sort({ $natural: -1 })
+    .limit(1)
+    .toArray();
+  let id = (lastItem[0] && lastItem[0].id !== undefined) ? lastItem[0].id + 1 : 0;
+  return id;
+};
+
 obj.create = async (args) => {
   const db = await obj.connect();
+  console.log(db)
   const id = await obj.getNewId(db.collection);
   await db.collection.insertOne({id,...args});
   const res = await db.collection.findOne({email: args.email});

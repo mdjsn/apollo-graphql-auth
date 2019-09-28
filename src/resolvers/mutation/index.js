@@ -5,7 +5,7 @@ import User from '../../models';
 import { APP_SECRET } from "../../utils";
 
 export const mutation = {
-  async signup({ email, password, name }, ctx) {
+  async signup(parent, { email, password, name }) {
     const hashedPassword = await hash(password, 10);
     const user = await User.create({
       email,
@@ -18,7 +18,7 @@ export const mutation = {
     };
   },
 
-  async login({ email, password }, ctx) {
+  async login(parent, { email, password }) {
     const user = await User.findOne({ email });
     if (!user) {
       throw new Error(`No user found for email: ${email}`);
