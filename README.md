@@ -1,68 +1,53 @@
-# Mongo Apollo Server
-Apollo GraphQL Server is created with Express.js. MongoDB data is being provided through GraphQL
+# <p align="center"> Apollo Mongo Auth </p>
 
-<h4>Example data in MongoDB:</h4>
-<h5>db.user.find().pretty()</h5>
+<p align="center">
+    <a href="https://sunim.com.np" target="_blank"><img src="https://i.imgur.com/1NOhbk5.png" height="330"/></a>
+</p>
 
-```
-{ "_id" : 1, "firstName" : "Suman", "lastName" : "Chalki", "phone" : 9765 }
-{ "_id" : 2, "firstName" : "Peter", "lastName" : "Parker", "phone" : 2222 }
-{ "_id" : 3, "firstName" : "John", "lastName" : "Nash", "phone" : 1111 }
-{ "_id" : 4, "firstName" : "Peter", "lastName" : "Pan", "phone" : 1234 }
-```
+<p align="center">Repo to handle the GraphQL with Mongo database talks by MDJSN</p>
 
-<h5>db.contact.find().pretty()</h5>
+## About
 
-```
-{ "_id" : 1, "user1" : 1, "user2" : 2 }
-{ "_id" : 2, "user1" : 1, "user2" : 3 }
-```
+This is a dummy boilerplate to be used by the team which includes the basic authentication system over schema based query and mutation over the apollo server, with JWT Token response sent back to client after verification along with MongoDB to store the data
 
-<h4>Example queries:</h4>
+## Installation
+
+**Clone the source locally:**
 
 ```
-{
-  allUsers {
-    id
-    name
-    lastName
-  }
-}
+$ git clone https://github.com/mdjsn/apollo-mongo-auth
+$ cd apollo-mongo-auth
 ```
 
-```
-{
-  allUsers (orderBy: firstName_ASC, skip: 1, first: 2) {
-    name
-  }
-}
-```
+**Install required node dependencies**
 
 ```
-query {
-  userById(id: 2) {
-    name
-  }
-}
+$ yarn
 ```
 
-```
-{
-  filterUsers (input: {firstName: "Peter"}) {
-    name
-  }
-}
-```
+**Open in development mode:**
 
 ```
-mutation {
-  addUser (
-    firstName: "John"
-    lastName: "Resig"
-    phone: 4444
-  ) {
-    id
-    name
-  }
-}
+$ yarn start
 ```
+
+## Contributing
+
+1. Fork it (<https://github.com/mdjsn/apollo-mongo-auth/fork>)
+2. Create your feature branch (`git checkout -b feature/fooBar`)
+3. Commit your changes (`git commit -am 'Add some fooBar'`)
+4. Push to the branch (`git push origin feature/fooBar`)
+5. Create a new Pull Request
+
+## References
+
+- <a href="https://github.com/sumanchalki/mongo-apollo-server" target="_blank">Mongo Apollo Server</a>
+- <a href="https://github.com/mdjsn/references" target="_blank">MDJSN references</a>
+- <a href="https://github.com/Silksofthesoul/graphql-jwt-express-apollo-mongodb-example" target="_blank">ME(A)RN Example</a>
+- <a href="https://learn.hasura.io/" target="_blank">Hasura IO</a>
+- <a href="https://fluent-conf-apollo.surge.sh/#/" target="_blank">A Frontend Developer's Guide</a>
+- <a href="https://github.com/peggyrayzis/guide-to-graphql" target="_blank">Guide to GraphQL</a>
+  
+## Licensing
+
+The code in this project is licensed under GNU GPLv3 license.
